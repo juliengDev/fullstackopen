@@ -23,11 +23,11 @@ const App = () => {
   });
 
   let count = 0;
-  let annectdote = 0;
+  let anectdote = 0;
   for (const vote in votes) {
     if (votes[vote] > count) {
       count = votes[vote];
-      annectdote = vote;
+      anectdote = vote;
     }
   }
 
@@ -49,7 +49,7 @@ const App = () => {
       </div>
       <div>
         <h2>Anecdote with most votes</h2>
-        <p>{anecdotes[annectdote]}</p>
+        <p>{anecdotes[anectdote]}</p>
         <p>has {count} votes</p>
       </div>
     </>
