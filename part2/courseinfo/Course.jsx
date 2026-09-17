@@ -3,7 +3,6 @@ import Header from "./Header";
 import Total from "./Total";
 
 function Course({ courses }) {
-  console.log(courses);
   return (
     <>
       <Header />
