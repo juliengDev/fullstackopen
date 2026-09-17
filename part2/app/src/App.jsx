@@ -45,6 +45,9 @@
 // export default App;
 
 import { useState } from "react";
+import Searchbar from "../../phonebook/Searchbar";
+import AddNewPerson from "../../phonebook/AddNewPerson";
+import Contacts from "../../phonebook/Contacts";
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -96,7 +99,6 @@ const App = () => {
     nameInput.value = "";
     numberInput.value = "";
   };
-
   const handleSearch = (event) => {
     const value = event.target.value.toLowerCase().trim();
     setSearchTerm(value);
@@ -106,30 +108,9 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <div>
-        <label htmlFor="search">filter shown with</label>
-        <input type="text" onChange={handleSearch} />
-      </div>
-      <h2>Add a new</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name: </label>
-          <input type="text" id="name" name="person_name" onChange={handleChangeName} />
-        </div>
-        <div>
-          <label htmlFor="number">Number: </label>
-          <input type="tel" id="number" name="person_number" onChange={handleChangeNumber} />
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-      <h2>Numbers</h2>
-      {filteredPerson.map((person) => (
-        <div key={person.id}>
-          {person.name} {person.number}
-        </div>
-      ))}
+      <Searchbar handleSearch={handleSearch} />
+      <AddNewPerson handleSubmit={handleSubmit} handleChangeName={handleChangeName} handleChangeNumber={handleChangeNumber} />
+      <Contacts filteredPerson={filteredPerson} />
     </div>
   );
 };
